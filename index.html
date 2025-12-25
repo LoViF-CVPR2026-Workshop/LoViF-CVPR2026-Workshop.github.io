@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoViF Workshop @ CVPR 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tech-bg': '#050507',
+                        'tech-card': '#121217',
+                        'neon-blue': '#00f2fe',
+                        'neon-purple': '#4facfe',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* 自定义科技风样式 */
+        body { background-color: #050507; color: #e2e8f0; }
+        
+        /* 动态渐变文字 */
+        .gradient-text {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 磨砂玻璃卡片 */
+        .glass-card {
+            background: rgba(18, 18, 23, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(79, 172, 254, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 242, 254, 0.2);
+        }
+
+        /* 导航栏 */
+        .nav-item { position: relative; }
+        .nav-item::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
+            background: #00f2fe; transition: width 0.3s;
+        }
+        .nav-item:hover::after { width: 100%; }
+
+        /* 背景网格动画 */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="relative overflow-x-hidden">
+
+    <div class="fixed inset-0 bg-grid z-[-1]"></div>
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[128px] z-[-1]"></div>
+    <div class="fixed bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-[128px] z-[-1]"></div>
+
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-lg border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-mono text-2xl font-bold tracking-tighter">
+                <span class="text-white">LoViF</span><span class="text-neon-blue">@CVPR26</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="nav-item hover:text-white transition">About</a>
+                <a href="#topics" class="nav-item hover:text-white transition">Call for Papers</a>
+                <a href="#speakers" class="nav-item hover:text-white transition">Speakers</a>
+                <a href="#challenges" class="nav-item hover:text-white transition">Challenges</a>
+                <a href="#dates" class="nav-item hover:text-white transition">Dates</a>
+                <a href="#organizers" class="nav-item hover:text-white transition">Team</a>
+            </div>
+            <a href="https://cmt3.research.microsoft.com/" target="_blank" class="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-5 py-2 rounded-full text-xs font-bold hover:shadow-lg hover:shadow-blue-500/30 transition">
+                Submit Paper
+            </a>
+        </div>
+    </nav>
+
+<header class="relative pt-32 pb-20 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    <div class="md:w-3/5 text-left z-10">
+        
+        <div class="mb-6 border-l-4 border-neon-blue pl-5 py-1">
+            <div class="text-neon-blue text-xs font-mono font-bold uppercase tracking-widest mb-1">
+                LoViF @ CVPR 2026
+            </div>
+            <h2 class="text-xl md:text-2xl text-gray-200 font-light tracking-wide">
+                The 1st Workshop on
+            </h2>
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-bold leading-none text-white mb-6">
+            Low-Level Vision <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Frontiers</span>
+        </h1>
+        
+        <div class="flex flex-wrap items-center gap-3 mb-8">
+            <span class="text-xl italic font-serif text-gray-500 mr-1">with</span>
+            
+            <span class="px-3 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm">Generative AI</span>
+            <span class="px-3 py-1 rounded bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm">Preference Optimization</span>
+            <span class="px-3 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-sm">Agentic Systems</span>
+        </div>
+
+        <p class="text-gray-400 text-lg mb-10 leading-relaxed max-w-2xl">
+            Join us to explore the AGI-oriented future where generative models, reward learning, and autonomous agents redefine low-level vision.
+        </p>
+
+        <div class="flex gap-4">
+            <a href="#challenges" class="px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded hover:shadow-lg hover:shadow-blue-500/25 transition">
+                View Challenges
+            </a>
+            <a href="#about" class="px-8 py-3 border border-gray-600 text-gray-300 hover:text-white hover:border-white transition rounded">
+                Learn More
+            </a>
+        </div>
+    </div>
+
+    <div class="md:w-2/5 flex justify-center relative">
+        <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-purple-500/30 blur-[60px] rounded-full"></div>
+        <div class="relative z-10 p-10 border border-white/10 bg-black/40 backdrop-blur-xl rounded-2xl rotate-3 hover:rotate-0 transition duration-500">
+            <div class="text-9xl font-black text-white/5 select-none absolute top-2 left-4">LOVIF</div>
+            <div class="text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-500 relative z-20">
+                LoViF
+            </div>
+            <div class="mt-4 text-right font-mono text-xs text-blue-400">
+                [Low-Level Vision Frontiers]
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<section id="topics" class="py-20 px-6 max-w-7xl mx-auto bg-white/5 rounded-3xl">
+        <h2 class="text-3xl font-mono font-bold mb-4 text-center">Call for Papers</h2>
+        <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+            We invite submissions on topics bridging low-level vision with AGI trends.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+                <div class="glass-card p-5 rounded-lg flex items-start space-x-4">
+                    <i class="fa-solid fa-wand-magic-sparkles text-neon-blue mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-white">Generative Models for Visual Processing</h4>
+                        <p class="text-sm text-gray-400 space-y-1"> 
+                            Low-level vision (e.g. restoration, enhancement, compression, perception) with visual autoregressive modeling (VAR), diffusion models, and GAN...; Low-level vision for AI-generated contents (AIGC images/videos and others);...
+                        </p>
+                    </div>
+                </div>
+                <div class="glass-card p-5 rounded-lg flex items-start space-x-4">
+                    <i class="fa-solid fa-thumbs-up text-neon-blue mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-white">Reward Models & Preference Optimization in Visual Processing</h4>
+                        <p class="text-sm text-gray-400">Explainable quality assessment and reward models for generation or processing; Preference optimization (e.g., DPO, GRPO) for viusal processing and perception; ...</p>
+                    </div>
+                </div>
+                <div class="glass-card p-5 rounded-lg flex items-start space-x-4">
+                    <i class="fa-solid fa-robot text-neon-blue mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-white">Agentic Systems for Interactive Low-Level Vision</h4>
+                        <p class="text-sm text-gray-400">Human-machine interaction theory in visual processing; Low-level agentic systems with LLMs/LVMs; Universal framework design; ...</p>
+                    </div>
+                </div>
+                <div class="glass-card p-5 rounded-lg flex items-start space-x-4">
+                    <i class="fa-solid fa-microchip text-neon-blue mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-white">Compact and Informative Low-level Representation</h4>
+                        <p class="text-sm text-gray-400">Latent compression/Cache/Acceleartion/Quantization/sparse attention for representation, visual signal generation or low-level processing; Low-level token compression and visual tokenizer; ...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div class="glass-card p-5 rounded-lg flex items-start space-x-4">
+                    <i class="fa-solid fa-car text-purple-400 mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-white">Low-level Vision for Machine Tasks</h4>
+                        <p class="text-sm text-gray-400">Data coding, streaming, visual processing for machine and intelligent tasks, such as large fundation models (LVMs), autonomous vehicles, robotics, or UAVs...</p>
+                    </div>
+                </div>
+                <div class="glass-card p-5 rounded-lg flex items-start space-x-4">
+                    <i class="fa-solid fa-globe text-purple-400 mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-white">Low-level Vision in World Models</h4>
+                        <p class="text-sm text-gray-400">3D/4D (gaussian splatting, Nerf, point cloud...) compression, reconstruction/generation, audio-visual benchmark, editing, gaussian splatting, world model evaluation, rendering \& simulation pipelines...</p>
+                    </div>
+                </div>
+                <div class="glass-card p-5 rounded-lg flex items-start space-x-4">
+                    <i class="fa-solid fa-comments text-purple-400 mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-white">LLMs & Multi-modal LLMs for Low-level Tasks</h4>
+                        <p class="text-sm text-gray-400">  Multi-modal low-level visual signal processing, compression and related instruction tuning, prompt techniques and zero/few-shot in-context learning...</p>
+                    </div>
+                </div>
+                <div class="glass-card p-5 rounded-lg flex items-start space-x-4">
+                    <i class="fa-solid fa-scale-balanced text-purple-400 mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-white">Ethics & Social Impact for Generative Low-level Vision</h4>
+                        <p class="text-sm text-gray-400">Ethical and impacts of generative low-level vision, including privacy in agentic systems, safety and robustness for downstream tasks, and impacts in healthcare and biomedical imaging...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="speakers" class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-mono font-bold mb-12 border-l-4 border-neon-blue pl-4">Invited Speakers</h2>
+        
+        <div class="glass-card p-16 rounded-2xl text-center border border-dashed border-white/10">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-500/10 mb-6 text-neon-blue shadow-[0_0_20px_rgba(0,242,254,0.2)]">
+                <i class="fa-solid fa-microphone-lines text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3 tracking-wide">To Be Determined</h3>
+            <p class="text-gray-400 max-w-lg mx-auto">
+                We have invited some experts in generative models and low-level vision from school and industry. <br>
+                Please check back soon for updates.
+            </p>
+        </div>
+    </section>
+
+    <section id="challenges" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div>
+                <h2 class="text-3xl font-mono font-bold text-white">LoViF 2026 Challenges</h2>
+                <p class="text-gray-400 mt-2">Participate in our challenge tracks.</p>
+            </div>
+            <div class="mt-4 md:mt-0 text-right">
+                 <span class="block text-xs text-gray-500 font-mono">CHALLENGE START</span>
+                 <span class="text-xl font-bold text-neon-blue">Feb 15, 2026</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="glass-card p-8 rounded-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl font-bold">01</div>
+                <h3 class="text-xl font-bold text-white mb-4">TBD</h3>
+                <p class="text-gray-400 text-sm mb-6 h-20">
+                    TBD.
+                </p>
+                <div class="border-t border-white/10 pt-4 mt-4">
+                    <span class="text-xs font-mono text-cyan-500">TBD</span>
+                    <a href="#" class="block mt-4 text-center bg-white/10 hover:bg-white/20 py-2 rounded font-bold text-sm transition">Coming Soon</a>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl font-bold">02</div>
+                <h3 class="text-xl font-bold text-white mb-4">TBD</h3>
+                <p class="text-gray-400 text-sm mb-6 h-20">
+                    TBD
+                </p>
+                <div class="border-t border-white/10 pt-4 mt-4">
+                    <span class="text-xs font-mono text-cyan-500">TBD</span>
+                    <a href="#" class="block mt-4 text-center bg-white/10 hover:bg-white/20 py-2 rounded font-bold text-sm transition">Coming Soon</a>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl font-bold">03</div>
+                <h3 class="text-xl font-bold text-white mb-4">TBD</h3>
+                <p class="text-gray-400 text-sm mb-6 h-20">
+                    TBD
+                </p>
+                <div class="border-t border-white/10 pt-4 mt-4">
+                    <span class="text-xs font-mono text-cyan-500">TBD</span>
+                    <a href="#" class="block mt-4 text-center bg-white/10 hover:bg-white/20 py-2 rounded font-bold text-sm transition">Coming Soon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- <section id="dates" class="py-20 px-6 bg-black/50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-mono font-bold mb-12 text-center text-white">Important Dates</h2>
+            
+            <div class="relative border-l-2 border-gray-700 ml-4 md:ml-0 space-y-12">
+                
+                <div class="relative pl-8 md:pl-0 md:flex md:justify-between items-center group">
+                    <div class="hidden md:block w-5/12 text-right pr-8">
+                        <h4 class="text-xl font-bold text-white group-hover:text-neon-blue transition">Paper Submission Open</h4>
+                        <p class="text-gray-500 text-sm">OpenReview system opens for submissions</p>
+                    </div>
+                    <div class="absolute left-[-9px] md:left-1/2 md:ml-[-9px] w-4 h-4 bg-gray-800 border-2 border-neon-blue rounded-full z-10 box-content"></div>
+                    <div class="md:w-5/12 pl-8 md:pl-8">
+                        <span class="font-mono text-neon-blue font-bold">Dec 28, 2025</span>
+                        <div class="md:hidden mt-1">
+                            <h4 class="text-xl font-bold text-white">Paper Submission Open</h4>
+                            <p class="text-gray-500 text-sm">OpenReview opens</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 md:pl-0 md:flex md:justify-between items-center group">
+                    <div class="hidden md:block w-5/12 text-right pr-8">
+                        <h4 class="text-xl font-bold text-white group-hover:text-neon-blue transition">Challenge Submission Open</h4>
+                        <p class="text-gray-500 text-sm">Challenge websites open for submission (11:59 PM AoE)</p>
+                    </div>
+                    <div class="absolute left-[-9px] md:left-1/2 md:ml-[-9px] w-4 h-4 bg-gray-800 border-2 border-neon-blue rounded-full z-10 box-content"></div>
+                    <div class="md:w-5/12 pl-8 md:pl-8">
+                        <span class="font-mono text-neon-blue font-bold">TBD</span>
+                        <div class="md:hidden mt-1">
+                            <h4 class="text-xl font-bold text-white">Challenge Submission Open</h4>
+                            <p class="text-gray-500 text-sm">Challenge tracks open for submission (AOE)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 md:pl-0 md:flex md:justify-between items-center group">
+                    <div class="hidden md:block w-5/12 text-right pr-8">
+                        <h4 class="text-xl font-bold text-white group-hover:text-purple-400 transition">Paper Submission Deadline</h4>
+                        <p class="text-gray-500 text-sm">Workshop papers (11:59 PM AoE)</p>
+                    </div>
+                    <div class="absolute left-[-9px] md:left-1/2 md:ml-[-9px] w-4 h-4 bg-gray-800 border-2 border-purple-400 rounded-full z-10 box-content"></div>
+                    <div class="md:w-5/12 pl-8 md:pl-8">
+                        <span class="font-mono text-purple-400 font-bold">Mar 12, 2026</span>
+                        <div class="md:hidden mt-1">
+                            <h4 class="text-xl font-bold text-white">Paper Submission Deadline</h4>
+                            <p class="text-gray-500 text-sm">Deadline (AoE)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 md:pl-0 md:flex md:justify-between items-center group">
+                    <div class="hidden md:block w-5/12 text-right pr-8">
+                        <h4 class="text-xl font-bold text-white group-hover:text-white transition">Acceptance Notification</h4>
+                        <p class="text-gray-500 text-sm">Decisions sent to authors</p>
+                    </div>
+                    <div class="absolute left-[-9px] md:left-1/2 md:ml-[-9px] w-4 h-4 bg-gray-800 border-2 border-gray-500 rounded-full z-10 box-content"></div>
+                    <div class="md:w-5/12 pl-8 md:pl-8">
+                        <span class="font-mono text-white font-bold">Mar 25, 2026</span>
+                        <div class="md:hidden mt-1">
+                            <h4 class="text-xl font-bold text-white">Acceptance Notification</h4>
+                            <p class="text-gray-500 text-sm">Decisions sent</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+ -->
+
+<section id="dates" class="py-20 px-6 bg-black/50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-mono font-bold mb-12 text-center text-white">Important Dates</h2>
+            
+            <div class="relative border-l-2 border-gray-700 ml-4 md:ml-0 space-y-12">
+                
+                <div class="relative pl-8 md:pl-0 md:flex md:justify-between items-center group cursor-default">
+                    <div class="hidden md:block w-5/12 text-right pr-8">
+                        <h4 class="text-xl font-bold text-gray-300 group-hover:text-cyan-400 transition-colors duration-300">Paper Submission Open</h4>
+                        <p class="text-gray-500 text-sm">OpenReview system opens for submissions</p>
+                    </div>
+                    <div class="absolute left-[-9px] md:left-1/2 md:ml-[-9px] w-4 h-4 bg-gray-900 border-2 border-gray-600 group-hover:border-cyan-400 group-hover:bg-cyan-400/20 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.6)] rounded-full z-10 box-content transition-all duration-300"></div>
+                    <div class="md:w-5/12 pl-8 md:pl-8">
+                        <span class="font-mono text-gray-400 group-hover:text-cyan-400 font-bold transition-colors duration-300">Dec 28, 2025</span>
+                        <div class="md:hidden mt-1">
+                            <h4 class="text-xl font-bold text-gray-300 group-hover:text-cyan-400 transition-colors duration-300">Paper Submission Open</h4>
+                            <p class="text-gray-500 text-sm">OpenReview opens</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 md:pl-0 md:flex md:justify-between items-center group cursor-default">
+                    <div class="hidden md:block w-5/12 text-right pr-8">
+                        <h4 class="text-xl font-bold text-gray-300 group-hover:text-fuchsia-400 transition-colors duration-300">Challenge Submission Open</h4>
+                        <p class="text-gray-500 text-sm">Challenge websites open for submission</p>
+                    </div>
+                    <div class="absolute left-[-9px] md:left-1/2 md:ml-[-9px] w-4 h-4 bg-gray-900 border-2 border-gray-600 group-hover:border-fuchsia-400 group-hover:bg-fuchsia-400/20 group-hover:shadow-[0_0_15px_rgba(232,121,249,0.6)] rounded-full z-10 box-content transition-all duration-300"></div>
+                    <div class="md:w-5/12 pl-8 md:pl-8">
+                        <span class="font-mono text-gray-400 group-hover:text-fuchsia-400 font-bold transition-colors duration-300">TBD</span>
+                        <div class="md:hidden mt-1">
+                            <h4 class="text-xl font-bold text-gray-300 group-hover:text-fuchsia-400 transition-colors duration-300">Challenge Submission Open</h4>
+                            <p class="text-gray-500 text-sm">Challenge tracks open</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 md:pl-0 md:flex md:justify-between items-center group cursor-default">
+                    <div class="hidden md:block w-5/12 text-right pr-8">
+                        <h4 class="text-xl font-bold text-gray-300 group-hover:text-purple-400 transition-colors duration-300">Paper Submission Deadline</h4>
+                        <p class="text-gray-500 text-sm">Workshop papers (11:59 PM AoE)</p>
+                    </div>
+                    <div class="absolute left-[-9px] md:left-1/2 md:ml-[-9px] w-4 h-4 bg-gray-900 border-2 border-gray-600 group-hover:border-purple-400 group-hover:bg-purple-400/20 group-hover:shadow-[0_0_15px_rgba(192,132,252,0.6)] rounded-full z-10 box-content transition-all duration-300"></div>
+                    <div class="md:w-5/12 pl-8 md:pl-8">
+                        <span class="font-mono text-gray-400 group-hover:text-purple-400 font-bold transition-colors duration-300">Mar 12, 2026</span>
+                        <div class="md:hidden mt-1">
+                            <h4 class="text-xl font-bold text-gray-300 group-hover:text-purple-400 transition-colors duration-300">Paper Submission Deadline</h4>
+                            <p class="text-gray-500 text-sm">Deadline (AoE)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 md:pl-0 md:flex md:justify-between items-center group cursor-default">
+                    <div class="hidden md:block w-5/12 text-right pr-8">
+                        <h4 class="text-xl font-bold text-gray-300 group-hover:text-emerald-400 transition-colors duration-300">Acceptance Notification</h4>
+                        <p class="text-gray-500 text-sm">Decisions sent to authors</p>
+                    </div>
+                    <div class="absolute left-[-9px] md:left-1/2 md:ml-[-9px] w-4 h-4 bg-gray-900 border-2 border-gray-600 group-hover:border-emerald-400 group-hover:bg-emerald-400/20 group-hover:shadow-[0_0_15px_rgba(52,211,153,0.6)] rounded-full z-10 box-content transition-all duration-300"></div>
+                    <div class="md:w-5/12 pl-8 md:pl-8">
+                        <span class="font-mono text-gray-400 group-hover:text-emerald-400 font-bold transition-colors duration-300">Mar 25, 2026</span>
+                        <div class="md:hidden mt-1">
+                            <h4 class="text-xl font-bold text-gray-300 group-hover:text-emerald-400 transition-colors duration-300">Acceptance Notification</h4>
+                            <p class="text-gray-500 text-sm">Decisions sent</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+ <section id="organizers" class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-mono font-bold mb-12 border-l-4 border-purple-500 pl-4">Organizing Team</h2>
+        
+        <div class="mb-12">
+            <h3 class="text-xl font-bold text-white mb-8">Main Organizers</h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+                
+                <div class="glass-card p-4 rounded-xl flex flex-col items-center text-center hover:bg-white/5 transition group">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-blue transition mb-3">
+                        <img src="https://github.com/lixinustc/CVPR-NTIRE2025-RainDrop-Competition.github.io/blob/main/imgs/xin_li.jpg?raw=true" alt="Xin Li" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm mb-0.5">Xin Li</h4>
+                        <p class="text-xs text-cyan-400">USTC</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl flex flex-col items-center text-center hover:bg-white/5 transition group">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-blue transition mb-3">
+                        <img src="/api/placeholder/100/100" alt="Yeying Jin" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm mb-0.5">Yeying Jin</h4>
+                        <p class="text-xs text-cyan-400">Tencent</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl flex flex-col items-center text-center hover:bg-white/5 transition group">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-blue transition mb-3">
+                        <img src="/api/placeholder/100/100" alt="Lanqing Guo" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm mb-0.5">Lanqing Guo</h4>
+                        <p class="text-xs text-cyan-400">UT Austin</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl flex flex-col items-center text-center hover:bg-white/5 transition group">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-blue transition mb-3">
+                        <img src="/api/placeholder/100/100" alt="Bihan Wen" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm mb-0.5">Bihan Wen</h4>
+                        <p class="text-xs text-cyan-400">NTU</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl flex flex-col items-center text-center hover:bg-white/5 transition group">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-blue transition mb-3">
+                        <img src="/api/placeholder/100/100" alt="Jian Wang" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm mb-0.5">Jian Wang</h4>
+                        <p class="text-xs text-cyan-400">Snap Research</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl flex flex-col items-center text-center hover:bg-white/5 transition group">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-blue transition mb-3">
+                        <img src="/api/placeholder/100/100" alt="Sina Alemohammad" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm mb-0.5">Sina Alemohammad</h4>
+                        <p class="text-xs text-cyan-400">UT Austin</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl flex flex-col items-center text-center hover:bg-white/5 transition group">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-blue transition mb-3">
+                        <img src="/api/placeholder/100/100" alt="Kun Yuan" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm mb-0.5">Kun Yuan</h4>
+                        <p class="text-xs text-cyan-400">Kuaishou</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl flex flex-col items-center text-center hover:bg-white/5 transition group">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-blue transition mb-3">
+                        <img src="/api/placeholder/100/100" alt="Zhibo Chen" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm mb-0.5">Zhibo Chen</h4>
+                        <p class="text-xs text-cyan-400">USTC</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl flex flex-col items-center text-center hover:bg-white/5 transition group">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-blue transition mb-3">
+                        <img src="/api/placeholder/100/100" alt="Weiping Li" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm mb-0.5">Weiping Li</h4>
+                        <p class="text-xs text-cyan-400">USTC</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl flex flex-col items-center text-center hover:bg-white/5 transition group">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-blue transition mb-3">
+                        <img src="/api/placeholder/100/100" alt="Robby T. Tan" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm mb-0.5">Robby T. Tan</h4>
+                        <p class="text-xs text-cyan-400">NUS</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl flex flex-col items-center text-center hover:bg-white/5 transition group">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-blue transition mb-3">
+                        <img src="/api/placeholder/100/100" alt="Elisa Ricci" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm mb-0.5">Elisa Ricci</h4>
+                        <p class="text-xs text-cyan-400">Univ. of Trento</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl flex flex-col items-center text-center hover:bg-white/5 transition group">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-blue transition mb-3">
+                        <img src="/api/placeholder/100/100" alt="Michael S. Brown" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm mb-0.5">Michael S. Brown</h4>
+                        <p class="text-xs text-cyan-400">York Univ.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mb-12">
+            <h3 class="text-xl font-bold text-white mb-6">Program Committee</h3>
+            <div class="text-gray-400 text-sm glass-card inline-block px-8 py-4 rounded-lg font-mono border border-dashed border-white/20">
+                // To Be Determined (TBD)
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/10 bg-black py-12 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="text-gray-500 text-sm mb-6">Sponsorship & Support</p>
+            <div class="flex justify-center items-center gap-8 mb-8 grayscale hover:grayscale-0 transition duration-500 opacity-70 hover:opacity-100">
+                <div class="text-xl font-bold text-white">TBD</div>
+                <div class="text-xl font-bold text-white">TBD</div>
+                <div class="text-xl font-bold text-white">IMCL</div>
+            </div>
+            <p class="text-xs text-gray-600">
+                © 2026 LoViF Workshop. All rights reserved. <br>
+                Contact: <a href="mailto:xin.li@ustc.edu.cn" class="text-cyan-600 hover:text-cyan-400">xin.li@ustc.edu.cn</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
