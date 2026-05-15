@@ -67,6 +67,368 @@
                               linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
         }
+        /* =========================================================
+   LoViF Extra Sections
+   Program / Accepted Papers / Awards & Certificates
+   Scoped with lovif- prefix to avoid conflicts
+========================================================= */
+
+.lovif-extra-section {
+  padding: 90px 0;
+}
+
+.lovif-extra-container {
+  width: min(1120px, 92%);
+  margin: 0 auto;
+}
+
+.lovif-extra-header {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.lovif-extra-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(92, 77, 255, 0.10);
+  color: #5c4dff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lovif-extra-header h2 {
+  margin: 0 0 14px;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 800;
+  color: #101828;
+}
+
+.lovif-extra-header p {
+  max-width: 820px;
+  margin: 0 auto;
+  color: #667085;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.lovif-extra-note {
+  margin-top: 16px !important;
+  color: #475467 !important;
+}
+
+.lovif-bottom-note {
+  text-align: center;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== Program Table ===== */
+
+.lovif-program-section {
+  background: #ffffff;
+}
+
+.lovif-program-table-wrapper {
+  overflow-x: auto;
+  border-radius: 22px;
+  border: 1px solid rgba(16, 24, 40, 0.08);
+  box-shadow: 0 18px 50px rgba(16, 24, 40, 0.08);
+  background: #ffffff;
+}
+
+.lovif-program-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 780px;
+}
+
+.lovif-program-table th {
+  padding: 18px 22px;
+  text-align: left;
+  background: linear-gradient(135deg, #101828, #344054);
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.lovif-program-table td {
+  padding: 20px 22px;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.08);
+  color: #344054;
+  vertical-align: top;
+}
+
+.lovif-program-table td:first-child {
+  width: 170px;
+  font-weight: 700;
+  color: #101828;
+  white-space: nowrap;
+}
+
+.lovif-program-table td strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #101828;
+  font-size: 16px;
+}
+
+.lovif-program-table td span {
+  display: block;
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.lovif-program-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.lovif-program-table .lovif-highlight-row {
+  background: rgba(92, 77, 255, 0.045);
+}
+
+/* ===== Accepted Papers ===== */
+
+.lovif-accepted-papers-section {
+  background: #f9fafb;
+}
+
+.lovif-paper-category-block {
+  margin-top: 36px;
+}
+
+.lovif-paper-category-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.lovif-paper-category-title h3 {
+  margin: 0;
+  font-size: 24px;
+  color: #101828;
+}
+
+.lovif-paper-badge,
+.lovif-paper-type {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lovif-paper-badge {
+  padding: 8px 14px;
+}
+
+.lovif-paper-type {
+  padding: 5px 10px;
+}
+
+.lovif-paper-badge.lovif-oral,
+.lovif-paper-type.lovif-oral {
+  background: rgba(245, 158, 11, 0.14);
+  color: #b45309;
+}
+
+.lovif-paper-badge.lovif-poster,
+.lovif-paper-type.lovif-poster {
+  background: rgba(16, 185, 129, 0.14);
+  color: #047857;
+}
+
+.lovif-paper-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.lovif-paper-card {
+  padding: 24px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(16, 24, 40, 0.08);
+  box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lovif-paper-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(16, 24, 40, 0.10);
+}
+
+.lovif-paper-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  gap: 10px;
+}
+
+.lovif-paper-id {
+  color: #667085;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.lovif-paper-card h4 {
+  margin: 0 0 10px;
+  color: #101828;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.lovif-paper-authors {
+  margin: 0 0 14px;
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.lovif-paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+}
+
+.lovif-paper-links a {
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #f2f4f7;
+  color: #344054;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.lovif-paper-links a:hover {
+  background: #5c4dff;
+  color: #ffffff;
+}
+
+/* ===== Awards & Certificates ===== */
+
+.lovif-awards-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+}
+
+.lovif-award-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.lovif-award-card {
+  padding: 26px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(16, 24, 40, 0.08);
+  box-shadow: 0 14px 36px rgba(16, 24, 40, 0.07);
+}
+
+.lovif-award-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  background: rgba(92, 77, 255, 0.10);
+  font-size: 24px;
+}
+
+.lovif-award-card h3 {
+  margin: 0 0 10px;
+  color: #101828;
+  font-size: 20px;
+}
+
+.lovif-award-card p {
+  margin: 0 0 18px;
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.lovif-certificate-status {
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #fff7ed;
+  color: #c2410c;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.lovif-certificate-link {
+  display: inline-flex;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #5c4dff;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.lovif-certificate-link:hover {
+  opacity: 0.88;
+}
+
+.lovif-certificate-note {
+  margin-top: 34px;
+  padding: 28px;
+  border-radius: 22px;
+  background: #101828;
+  color: #ffffff;
+}
+
+.lovif-certificate-note h3 {
+  margin: 0 0 14px;
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.lovif-certificate-note ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.lovif-certificate-note li {
+  margin-bottom: 9px;
+  color: #e4e7ec;
+  line-height: 1.65;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px) {
+  .lovif-paper-list,
+  .lovif-award-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lovif-extra-section {
+    padding: 68px 0;
+  }
+
+  .lovif-extra-header h2 {
+    font-size: 32px;
+  }
+}
     </style>
 </head>
 <body class="relative overflow-x-hidden">
@@ -81,12 +443,15 @@
                 <span class="text-white">LoViF</span><span class="text-neon-blue">@CVPR26</span>
             </div>
             <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
-                <a href="#about" class="nav-item hover:text-white transition">About</a>
-                <a href="#topics" class="nav-item hover:text-white transition">Call for Papers</a>
-                <a href="#speakers" class="nav-item hover:text-white transition">Speakers</a>
-                <a href="#challenges" class="nav-item hover:text-white transition">Challenges</a>
-                <a href="#dates" class="nav-item hover:text-white transition">Dates</a>
-                <a href="#organizers" class="nav-item hover:text-white transition">Team</a>
+                <a href="#about">About</a>
+                <a href="#cfp">Call for Papers</a>
+                <a href="#speakers">Speakers</a>
+                <a href="#program">Program</a>
+                <a href="#accepted-papers">Accepted Papers</a>
+                <a href="#challenges">Challenges</a>
+                <a href="#awards-certificates">Awards & Certificates</a>
+                <a href="#dates">Dates</a>
+                <a href="#team">Team</a>
             </div>
             <a href="https://openreview.net/group?id=thecvf.com/CVPR/2026/Workshop/LoViF" target="_blank" class="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-5 py-2 rounded-full text-xs font-bold hover:shadow-lg hover:shadow-blue-500/30 transition">
                 Submit Paper
@@ -297,6 +662,325 @@
             </p>
         </div>
     </section>
+
+<!-- =========================================================
+     LoViF Extra Sections: Program / Accepted Papers / Awards
+     Paste this block after Invited Speakers and before Challenges
+========================================================= -->
+
+<section id="program" class="lovif-extra-section lovif-program-section">
+  <div class="lovif-extra-container">
+    <div class="lovif-extra-header">
+      <span class="lovif-extra-tag">Program</span>
+      <h2>Workshop Program</h2>
+      <p>
+        The official LoViF @ CVPR 2026 workshop program will feature invited talks,
+        oral paper presentations, poster discussions, award announcements,
+        and certificate information.
+      </p>
+      <p class="lovif-extra-note">
+        <strong>Date:</strong> June 4th, 2026, AM &nbsp; | &nbsp;
+        <strong>Venue:</strong> Room 504, Colorado Convention Center, Denver, USA &nbsp; | &nbsp;
+        <strong>Time Zone:</strong> Mountain Time, MT
+      </p>
+    </div>
+
+    <div class="lovif-program-table-wrapper">
+      <table class="lovif-program-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Session</th>
+            <th>Speaker / Presenter</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>08:00 – 08:10</td>
+            <td>
+              <strong>Opening Remarks</strong>
+              <span>Welcome and introduction to LoViF 2026</span>
+            </td>
+            <td>Workshop Organizers</td>
+          </tr>
+
+          <tr>
+            <td>08:10 – 08:40</td>
+            <td>
+              <strong>Invited Talk 1</strong>
+              <span>Invited speaker talk</span>
+            </td>
+            <td>TBA</td>
+          </tr>
+
+          <tr>
+            <td>08:40 – 09:10</td>
+            <td>
+              <strong>Invited Talk 2</strong>
+              <span>Invited speaker talk</span>
+            </td>
+            <td>TBA</td>
+          </tr>
+
+          <tr>
+            <td>09:10 – 09:40</td>
+            <td>
+              <strong>Invited Talk 3</strong>
+              <span>Invited speaker talk</span>
+            </td>
+            <td>TBA</td>
+          </tr>
+
+          <tr class="lovif-highlight-row">
+            <td>09:40 – 10:10</td>
+            <td>
+              <strong>Coffee Break & Poster Session</strong>
+              <span>Accepted poster papers, networking, and informal discussions</span>
+            </td>
+            <td>Poster Presenters</td>
+          </tr>
+
+          <tr>
+            <td>10:10 – 10:40</td>
+            <td>
+              <strong>Invited Talk 4</strong>
+              <span>Invited speaker talk</span>
+            </td>
+            <td>TBA</td>
+          </tr>
+
+          <tr>
+            <td>10:40 – 11:10</td>
+            <td>
+              <strong>Invited Talk 5</strong>
+              <span>Invited speaker talk</span>
+            </td>
+            <td>TBA</td>
+          </tr>
+
+          <tr class="lovif-highlight-row">
+            <td>11:10 – 12:22</td>
+            <td>
+              <strong>Oral Presentation Session</strong>
+              <span>12 accepted oral papers, 6 minutes per presentation</span>
+            </td>
+            <td>Oral Paper Presenters</td>
+          </tr>
+
+          <tr class="lovif-highlight-row">
+            <td>12:22 – 12:32</td>
+            <td>
+              <strong>Awards, Certificates & Closing Remarks</strong>
+              <span>Best paper awards, challenge awards, and certificate information</span>
+            </td>
+            <td>Workshop Organizers</td>
+          </tr>
+
+          <tr>
+            <td>12:32 – 13:00</td>
+            <td>
+              <strong>Informal Discussion / Buffer</strong>
+              <span>Additional discussions, speaker interaction, and schedule buffer</span>
+            </td>
+            <td>All Participants</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="lovif-extra-note lovif-bottom-note">
+      Each invited talk is scheduled for 30 minutes. Each oral presentation is scheduled
+      for 6 minutes. The poster session will be held together with the coffee break.
+      The final presentation order and speaker information will be updated after confirmation
+      from invited speakers and accepted authors.
+    </p>
+  </div>
+</section>
+
+
+<section id="accepted-papers" class="lovif-extra-section lovif-accepted-papers-section">
+  <div class="lovif-extra-container">
+    <div class="lovif-extra-header">
+      <span class="lovif-extra-tag">Accepted Papers</span>
+      <h2>Accepted Papers</h2>
+      <p>
+        Accepted papers will be presented as either oral or poster presentations.
+        Oral papers are selected by the organizing committee based on review scores,
+        reviewer comments, relevance to LoViF topics, and program balance.
+      </p>
+    </div>
+
+    <div class="lovif-paper-category-block">
+      <div class="lovif-paper-category-title">
+        <span class="lovif-paper-badge lovif-oral">Oral</span>
+        <h3>Oral Presentations</h3>
+      </div>
+
+      <div class="lovif-paper-list">
+        <!-- ===== Oral paper template: copy this article for each oral paper ===== -->
+        <article class="lovif-paper-card">
+          <div class="lovif-paper-meta">
+            <span class="lovif-paper-id">Paper #TBA</span>
+            <span class="lovif-paper-type lovif-oral">Oral</span>
+          </div>
+          <h4>Paper Title TBA</h4>
+          <p class="lovif-paper-authors">Author Name(s) TBA</p>
+          <p class="lovif-paper-links">
+            <a href="#" target="_blank" rel="noopener">OpenReview</a>
+            <a href="#" target="_blank" rel="noopener">PDF</a>
+            <a href="#" target="_blank" rel="noopener">Poster</a>
+          </p>
+        </article>
+
+        <article class="lovif-paper-card">
+          <div class="lovif-paper-meta">
+            <span class="lovif-paper-id">Paper #TBA</span>
+            <span class="lovif-paper-type lovif-oral">Oral</span>
+          </div>
+          <h4>Paper Title TBA</h4>
+          <p class="lovif-paper-authors">Author Name(s) TBA</p>
+          <p class="lovif-paper-links">
+            <a href="#" target="_blank" rel="noopener">OpenReview</a>
+            <a href="#" target="_blank" rel="noopener">PDF</a>
+            <a href="#" target="_blank" rel="noopener">Poster</a>
+          </p>
+        </article>
+      </div>
+    </div>
+
+    <div class="lovif-paper-category-block">
+      <div class="lovif-paper-category-title">
+        <span class="lovif-paper-badge lovif-poster">Poster</span>
+        <h3>Poster Presentations</h3>
+      </div>
+
+      <div class="lovif-paper-list">
+        <!-- ===== Poster paper template: copy this article for each poster paper ===== -->
+        <article class="lovif-paper-card">
+          <div class="lovif-paper-meta">
+            <span class="lovif-paper-id">Paper #TBA</span>
+            <span class="lovif-paper-type lovif-poster">Poster</span>
+          </div>
+          <h4>Paper Title TBA</h4>
+          <p class="lovif-paper-authors">Author Name(s) TBA</p>
+          <p class="lovif-paper-links">
+            <a href="#" target="_blank" rel="noopener">OpenReview</a>
+            <a href="#" target="_blank" rel="noopener">PDF</a>
+            <a href="#" target="_blank" rel="noopener">Poster</a>
+          </p>
+        </article>
+
+        <article class="lovif-paper-card">
+          <div class="lovif-paper-meta">
+            <span class="lovif-paper-id">Paper #TBA</span>
+            <span class="lovif-paper-type lovif-poster">Poster</span>
+          </div>
+          <h4>Paper Title TBA</h4>
+          <p class="lovif-paper-authors">Author Name(s) TBA</p>
+          <p class="lovif-paper-links">
+            <a href="#" target="_blank" rel="noopener">OpenReview</a>
+            <a href="#" target="_blank" rel="noopener">PDF</a>
+            <a href="#" target="_blank" rel="noopener">Poster</a>
+          </p>
+        </article>
+      </div>
+    </div>
+
+    <p class="lovif-extra-note lovif-bottom-note">
+      The accepted paper list will be finalized after author confirmation and camera-ready submission.
+    </p>
+  </div>
+</section>
+
+
+<section id="awards-certificates" class="lovif-extra-section lovif-awards-section">
+  <div class="lovif-extra-container">
+    <div class="lovif-extra-header">
+      <span class="lovif-extra-tag">Awards</span>
+      <h2>Awards & Certificates</h2>
+      <p>
+        LoViF @ CVPR 2026 will recognize outstanding workshop papers, posters,
+        challenge teams, and community contributions. Official electronic certificates
+        will be issued to award recipients after the workshop.
+      </p>
+    </div>
+
+    <div class="lovif-award-grid">
+      <article class="lovif-award-card">
+        <div class="lovif-award-icon">🏆</div>
+        <h3>Best Paper Award</h3>
+        <p>
+          Presented to the most outstanding accepted workshop paper based on technical quality,
+          novelty, clarity, and relevance to LoViF.
+        </p>
+        <span class="lovif-certificate-status">Certificate: To be issued</span>
+      </article>
+
+      <article class="lovif-award-card">
+        <div class="lovif-award-icon">🎓</div>
+        <h3>Best Student Paper Award</h3>
+        <p>
+          Presented to an excellent paper whose leading contribution is made by student author(s).
+        </p>
+        <span class="lovif-certificate-status">Certificate: To be issued</span>
+      </article>
+
+      <article class="lovif-award-card">
+        <div class="lovif-award-icon">🖼️</div>
+        <h3>Best Poster Award</h3>
+        <p>
+          Presented to a poster with outstanding presentation quality, technical clarity,
+          and audience engagement.
+        </p>
+        <span class="lovif-certificate-status">Certificate: To be issued</span>
+      </article>
+
+      <article class="lovif-award-card">
+        <div class="lovif-award-icon">🚀</div>
+        <h3>Challenge Awards</h3>
+        <p>
+          Presented to top-ranked teams in LoViF 2026 challenge tracks according to the
+          official evaluation protocols.
+        </p>
+        <span class="lovif-certificate-status">Certificate: To be issued</span>
+      </article>
+
+      <article class="lovif-award-card">
+        <div class="lovif-award-icon">🤝</div>
+        <h3>Outstanding Reviewer / PC Certificate</h3>
+        <p>
+          Certificates may be issued to selected reviewers or program committee members
+          for outstanding service.
+        </p>
+        <span class="lovif-certificate-status">Certificate: To be issued</span>
+      </article>
+
+      <article class="lovif-award-card">
+        <div class="lovif-award-icon">📄</div>
+        <h3>Certificate Request</h3>
+        <p>
+          Award recipients and invited contributors may contact the organizers for name,
+          affiliation, or title corrections before certificate generation.
+        </p>
+        <a class="lovif-certificate-link" href="mailto:xin.li@ustc.edu.cn">
+          Contact Organizers
+        </a>
+      </article>
+    </div>
+
+    <div class="lovif-certificate-note">
+      <h3>Certificate Information</h3>
+      <ul>
+        <li>Official award certificates will be provided in electronic format after the workshop.</li>
+        <li>Certificates will include the recipient name, award title, workshop name, and CVPR 2026 affiliation.</li>
+        <li>Authors and challenge winners should confirm their name and affiliation before certificate generation.</li>
+        <li>For corrections, please contact the organizing committee.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+    
 
     <section id="challenges" class="py-20 px-6 max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12">
