@@ -436,6 +436,33 @@
   background: rgba(124, 58, 237, 0.14);
   color: #6d28d9;
 }
+/* ===== Oral corner badge for accepted papers ===== */
+
+.lovif-paper-card {
+  position: relative;
+  padding-bottom: 52px;
+}
+
+.lovif-oral-corner-badge {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.14);
+  color: #b45309;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.lovif-is-oral {
+  border-color: rgba(245, 158, 11, 0.28);
+}       
     </style>
 </head>
 <body class="relative overflow-x-hidden">
@@ -670,9 +697,9 @@
       <span class="lovif-extra-tag">Accepted Works</span>
       <h2>Accepted Works</h2>
       <p>
-        The following works have been accepted to LoViF @ CVPR 2026 and will be presented
-        during the workshop poster session. Accepted papers and challenge reports are listed separately.
-        The final poster arrangement and presentation order will be updated later.
+        The following works have been accepted to LoViF @ CVPR 2026. Accepted papers
+        and challenge reports are listed separately. Papers selected for oral presentation
+        are marked with an “Oral Presentation” badge.
       </p>
     </div>
 
@@ -693,12 +720,13 @@
           <h4>FlowDet: Unifying Object Detection and Generative Transport Flows</h4>
         </article>
 
-        <article class="lovif-paper-card">
+        <article class="lovif-paper-card lovif-is-oral">
           <div class="lovif-paper-meta">
             <span class="lovif-paper-id">Paper 02</span>
             <span class="lovif-paper-type lovif-poster">Accepted Paper</span>
           </div>
           <h4>Controllable Image Generation with Composed Parallel Token Prediction</h4>
+          <span class="lovif-oral-corner-badge">Oral Presentation</span>
         </article>
 
         <article class="lovif-paper-card">
@@ -725,28 +753,31 @@
           <h4>RewardSDS: Aligning Score Distillation via Reward-Weighted Sampling</h4>
         </article>
 
-        <article class="lovif-paper-card">
+        <article class="lovif-paper-card lovif-is-oral">
           <div class="lovif-paper-meta">
             <span class="lovif-paper-id">Paper 06</span>
             <span class="lovif-paper-type lovif-poster">Accepted Paper</span>
           </div>
           <h4>PyrLight: Laplacian-Pyramid-Guided Conditional Diffusion for Detail-Preserving and Artifact-Free Low-Light Enhancement</h4>
+          <span class="lovif-oral-corner-badge">Oral Presentation</span>
         </article>
 
-        <article class="lovif-paper-card">
+        <article class="lovif-paper-card lovif-is-oral">
           <div class="lovif-paper-meta">
             <span class="lovif-paper-id">Paper 07</span>
             <span class="lovif-paper-type lovif-poster">Accepted Paper</span>
           </div>
           <h4>EvoRender: An Agentic AI for Neural Rendering Algorithm Discovery</h4>
+          <span class="lovif-oral-corner-badge">Oral Presentation</span>
         </article>
 
-        <article class="lovif-paper-card">
+        <article class="lovif-paper-card lovif-is-oral">
           <div class="lovif-paper-meta">
             <span class="lovif-paper-id">Paper 08</span>
             <span class="lovif-paper-type lovif-poster">Accepted Paper</span>
           </div>
           <h4>Towards Unified Image Deblurring using a Mixture-of-Experts Decoder</h4>
+          <span class="lovif-oral-corner-badge">Oral Presentation</span>
         </article>
 
         <article class="lovif-paper-card">
@@ -765,20 +796,22 @@
           <h4>Generative Anonymization in Event Streams</h4>
         </article>
 
-        <article class="lovif-paper-card">
+        <article class="lovif-paper-card lovif-is-oral">
           <div class="lovif-paper-meta">
             <span class="lovif-paper-id">Paper 11</span>
             <span class="lovif-paper-type lovif-poster">Accepted Paper</span>
           </div>
           <h4>Generative Panoramic Image Stitching</h4>
+          <span class="lovif-oral-corner-badge">Oral Presentation</span>
         </article>
 
-        <article class="lovif-paper-card">
+        <article class="lovif-paper-card lovif-is-oral">
           <div class="lovif-paper-meta">
             <span class="lovif-paper-id">Paper 12</span>
             <span class="lovif-paper-type lovif-poster">Accepted Paper</span>
           </div>
           <h4>Don&rsquo;t Waste Bits! Adaptive KV-Cache Quantization for Lightweight On-Device LLMs</h4>
+          <span class="lovif-oral-corner-badge">Oral Presentation</span>
         </article>
 
         <article class="lovif-paper-card">
@@ -813,12 +846,13 @@
           <h4>EF<sup>3</sup>Net: Efficient-fusion Focal Frequency Network for Temporally Coherent Video Weather Removal</h4>
         </article>
 
-        <article class="lovif-paper-card">
+        <article class="lovif-paper-card lovif-is-oral">
           <div class="lovif-paper-meta">
             <span class="lovif-paper-id">Paper 17</span>
             <span class="lovif-paper-type lovif-poster">Accepted Paper</span>
           </div>
-          <h4>&pi;-Diff: Physically-Inspired Low-Light Image Enhancement with Structure Preserving Diffusion Priors</h4>
+          <h4><strong>&pi;</strong>-Diff: Physically-Inspired Low-Light Image Enhancement with Structure Preserving Diffusion Priors</h4>
+          <span class="lovif-oral-corner-badge">Oral Presentation</span>
         </article>
 
         <article class="lovif-paper-card">
@@ -909,8 +943,9 @@
     </div>
 
     <p class="lovif-extra-note lovif-bottom-note">
-      Accepted papers and challenge reports will be presented during the workshop poster session.
-      The final poster arrangement, presentation order, and additional materials will be updated later.
+      Papers selected for oral presentation are marked with an “Oral Presentation” badge. Challenge Reports are also Oral Presentation
+      Other accepted papers and challenge reports will be presented during the accepted works poster session.
+      The final presentation order and additional materials will be updated later.
     </p>
   </div>
 </section>
