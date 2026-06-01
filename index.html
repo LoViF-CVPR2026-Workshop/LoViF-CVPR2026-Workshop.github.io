@@ -127,6 +127,38 @@
   margin-right: auto;
 }
 
+/* Fix speaker cards on white background */
+#speakers .glass-card {
+background: rgba(15, 23, 42, 0.96) !important;
+border: 1px solid rgba(148, 163, 184, 0.28) !important;
+box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18) !important;
+color: #ffffff !important;
+}
+
+/* Hover: keep dark card, only enhance border and shadow */
+#speakers a.glass-card:hover {
+background: rgba(15, 23, 42, 1) !important;
+border-color: #00f2fe !important;
+transform: translateY(-4px);
+box-shadow: 0 22px 55px rgba(0, 242, 254, 0.18) !important;
+}
+
+/* Make speaker names readable */
+#speakers .glass-card h4 {
+color: #ffffff !important;
+}
+
+/* Keep affiliation cyan */
+#speakers .glass-card p {
+color: #22d3ee !important;
+}
+
+/* Image border hover */
+#speakers .glass-card:hover img {
+transform: scale(1.02);
+}
+
+
 /* ===== Program Table ===== */
 
 .lovif-program-section {
