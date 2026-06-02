@@ -445,6 +445,8 @@ transform: scale(1.02);
   line-height: 1.65;
 }
 
+        
+
 /* ===== Responsive ===== */
 
 @media (max-width: 900px) {
@@ -468,6 +470,85 @@ transform: scale(1.02);
   background: rgba(124, 58, 237, 0.14);
   color: #6d28d9;
 }
+/* ===== Awards & Certificates Preview ===== */
+
+.lovif-certificate-actions {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+align-items: center;
+}
+
+button.lovif-certificate-link {
+border: 0;
+cursor: pointer;
+font-family: inherit;
+}
+
+.lovif-certificate-preview {
+margin-bottom: 34px;
+border-radius: 24px;
+overflow: hidden;
+border: 1px solid rgba(16, 24, 40, 0.08);
+background: #ffffff;
+box-shadow: 0 18px 45px rgba(16, 24, 40, 0.08);
+}
+
+.lovif-certificate-preview-head {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 18px;
+padding: 22px 24px;
+border-bottom: 1px solid rgba(16, 24, 40, 0.08);
+background: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+}
+
+.lovif-certificate-preview-head h3 {
+margin: 8px 0 0;
+color: #101828;
+font-size: 22px;
+line-height: 1.35;
+}
+
+.lovif-certificate-preview iframe {
+width: 100%;
+height: 720px;
+border: 0;
+display: block;
+background: #f2f4f7;
+}
+
+.lovif-certificate-pages {
+display: inline-flex;
+margin-bottom: 14px;
+padding: 6px 10px;
+border-radius: 999px;
+background: #f2f4f7;
+color: #344054;
+font-size: 12px;
+font-weight: 800;
+}
+
+.lovif-award-card h4 {
+margin: 0 0 12px;
+color: #344054;
+font-size: 14px;
+line-height: 1.55;
+font-weight: 700;
+}
+
+@media (max-width: 900px) {
+.lovif-certificate-preview-head {
+flex-direction: column;
+align-items: flex-start;
+}
+
+.lovif-certificate-preview iframe {
+height: 520px;
+}
+}
+
 /* ===== Oral corner badge for accepted papers ===== */
 
 .lovif-paper-card {
@@ -1095,6 +1176,258 @@ transform: scale(1.02);
     </p>
   </div>
 </section>
+
+<section id="awards-certificates" class="lovif-extra-section lovif-awards-section">
+  <div class="lovif-extra-container">
+    <div class="lovif-extra-header">
+      <span class="lovif-extra-tag">Awards</span>
+      <h2>Awards & Certificates</h2>
+      <p>
+        The official award certificates for LoViF @ CVPR 2026 workshop challenges are available below.
+        Participants may preview the certificates by challenge category and download the full PDF file.
+      </p>
+    </div>
+
+```
+<div id="lovif-certificate-preview" class="lovif-certificate-preview">
+  <div class="lovif-certificate-preview-head">
+    <div>
+      <span class="lovif-certificate-status">Certificate Preview</span>
+      <h3 id="lovif-certificate-preview-title">
+        Real-world All-in-One Image Restoration Challenge
+      </h3>
+    </div>
+
+    <a id="lovif-certificate-open-link"
+       class="lovif-certificate-link"
+       href="./certificates/Certificate-New2.pdf#page=1"
+       target="_blank"
+       rel="noopener noreferrer">
+      Open Preview
+    </a>
+  </div>
+
+  <iframe id="lovif-certificate-frame"
+          src="./certificates/Certificate-New2.pdf#page=1&toolbar=1&navpanes=0"
+          title="LoViF @ CVPR 2026 Award Certificates Preview">
+  </iframe>
+</div>
+
+<div class="lovif-award-grid">
+
+  <article class="lovif-award-card">
+    <div class="lovif-award-icon">🏆</div>
+    <span class="lovif-certificate-pages">Pages 1–3</span>
+    <h3>Real-world All-in-One Image Restoration Challenge</h3>
+    <h4>Winner Award · Second Place Award · Third Place Award</h4>
+    <p>
+      Award certificates for the Real-world All-in-One Image Restoration Challenge.
+    </p>
+    <div class="lovif-certificate-actions">
+      <button type="button"
+              class="lovif-certificate-link"
+              data-certificate-page="1"
+              data-certificate-title="Real-world All-in-One Image Restoration Challenge">
+        Preview
+      </button>
+      <a class="lovif-certificate-link"
+         href="./certificates/Certificate-New2.pdf#page=1"
+         target="_blank"
+         rel="noopener noreferrer">
+        View PDF
+      </a>
+      <a class="lovif-certificate-link"
+         href="./certificates/Certificate-New2.pdf"
+         download>
+        Download
+      </a>
+    </div>
+  </article>
+
+  <article class="lovif-award-card">
+    <div class="lovif-award-icon">🎬</div>
+    <span class="lovif-certificate-pages">Pages 4–6</span>
+    <h3>Challenge on Weather Removal in Videos</h3>
+    <h4>Winner Award · Second Place Award · Third Place Award</h4>
+    <p>
+      Award certificates for the Challenge on Weather Removal in Videos.
+    </p>
+    <div class="lovif-certificate-actions">
+      <button type="button"
+              class="lovif-certificate-link"
+              data-certificate-page="4"
+              data-certificate-title="Challenge on Weather Removal in Videos">
+        Preview
+      </button>
+      <a class="lovif-certificate-link"
+         href="./certificates/Certificate-New2.pdf#page=4"
+         target="_blank"
+         rel="noopener noreferrer">
+        View PDF
+      </a>
+      <a class="lovif-certificate-link"
+         href="./certificates/Certificate-New2.pdf"
+         download>
+        Download
+      </a>
+    </div>
+  </article>
+
+  <article class="lovif-award-card">
+    <div class="lovif-award-icon">🤖</div>
+    <span class="lovif-certificate-pages">Pages 7–10</span>
+    <h3>Challenge on Efficient VLM for Multimodal Ad Creative Quality Scoring</h3>
+    <h4>Winner Award · Second Place Award · Third Place Award</h4>
+    <p>
+      Award certificates for the Efficient VLM for Multimodal Ad Creative Quality Scoring Challenge.
+    </p>
+    <div class="lovif-certificate-actions">
+      <button type="button"
+              class="lovif-certificate-link"
+              data-certificate-page="7"
+              data-certificate-title="Challenge on Efficient VLM for Multimodal Ad Creative Quality Scoring">
+        Preview
+      </button>
+      <a class="lovif-certificate-link"
+         href="./certificates/Certificate-New2.pdf#page=7"
+         target="_blank"
+         rel="noopener noreferrer">
+        View PDF
+      </a>
+      <a class="lovif-certificate-link"
+         href="./certificates/Certificate-New2.pdf"
+         download>
+        Download
+      </a>
+    </div>
+  </article>
+
+  <article class="lovif-award-card">
+    <div class="lovif-award-icon">🧠</div>
+    <span class="lovif-certificate-pages">Pages 11–14</span>
+    <h3>Human-oriented Semantic Image Quality Assessment Challenge</h3>
+    <h4>Winner Award · Second Place Award · Third Place Award · Honorable Mention Award</h4>
+    <p>
+      Award certificates for the Human-oriented Semantic Image Quality Assessment Challenge.
+    </p>
+    <div class="lovif-certificate-actions">
+      <button type="button"
+              class="lovif-certificate-link"
+              data-certificate-page="11"
+              data-certificate-title="Human-oriented Semantic Image Quality Assessment Challenge">
+        Preview
+      </button>
+      <a class="lovif-certificate-link"
+         href="./certificates/Certificate-New2.pdf#page=11"
+         target="_blank"
+         rel="noopener noreferrer">
+        View PDF
+      </a>
+      <a class="lovif-certificate-link"
+         href="./certificates/Certificate-New2.pdf"
+         download>
+        Download
+      </a>
+    </div>
+  </article>
+
+  <article class="lovif-award-card">
+    <div class="lovif-award-icon">🌐</div>
+    <span class="lovif-certificate-pages">Pages 15–17</span>
+    <h3>Holistic Quality Assessment for 4D World Model Challenge</h3>
+    <h4>Winner Award · Second Place Award · Third Place Award</h4>
+    <p>
+      Award certificates for the Holistic Quality Assessment for 4D World Model Challenge.
+    </p>
+    <div class="lovif-certificate-actions">
+      <button type="button"
+              class="lovif-certificate-link"
+              data-certificate-page="15"
+              data-certificate-title="Holistic Quality Assessment for 4D World Model Challenge">
+        Preview
+      </button>
+      <a class="lovif-certificate-link"
+         href="./certificates/Certificate-New2.pdf#page=15"
+         target="_blank"
+         rel="noopener noreferrer">
+        View PDF
+      </a>
+      <a class="lovif-certificate-link"
+         href="./certificates/Certificate-New2.pdf"
+         download>
+        Download
+      </a>
+    </div>
+  </article>
+
+  <article class="lovif-award-card">
+    <div class="lovif-award-icon">🎥</div>
+    <span class="lovif-certificate-pages">Pages 18–19</span>
+    <h3>Challenge on Short-form UGC Video Restoration in the Wild with Generative Models</h3>
+    <h4>Objective Track · Winner Award · Runner-Up Award</h4>
+    <p>
+      Award certificates for the Objective Track of the Short-form UGC Video Restoration Challenge.
+    </p>
+    <div class="lovif-certificate-actions">
+      <button type="button"
+              class="lovif-certificate-link"
+              data-certificate-page="18"
+              data-certificate-title="Challenge on Short-form UGC Video Restoration in the Wild with Generative Models">
+        Preview
+      </button>
+      <a class="lovif-certificate-link"
+         href="./certificates/Certificate-New2.pdf#page=18"
+         target="_blank"
+         rel="noopener noreferrer">
+        View PDF
+      </a>
+      <a class="lovif-certificate-link"
+         href="./certificates/Certificate-New2.pdf"
+         download>
+        Download
+      </a>
+    </div>
+  </article>
+
+</div>
+
+<div class="lovif-certificate-note">
+  <h3>Certificate Information</h3>
+  <ul>
+    <li>The certificates are issued for LoViF @ CVPR 2026 workshop challenges.</li>
+    <li>The preview above displays the first certificate page of each challenge category.</li>
+    <li>Please use the download button to obtain the full official certificate PDF.</li>
+  </ul>
+</div>
+```
+
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll("[data-certificate-page]").forEach(function(button) {
+    button.addEventListener("click", function() {
+      var pdfPath = "./certificates/Certificate-New2.pdf";
+      var page = button.getAttribute("data-certificate-page");
+      var title = button.getAttribute("data-certificate-title");
+
+      var frame = document.getElementById("lovif-certificate-frame");
+      var titleEl = document.getElementById("lovif-certificate-preview-title");
+      var openLink = document.getElementById("lovif-certificate-open-link");
+      var previewBlock = document.getElementById("lovif-certificate-preview");
+
+      frame.src = pdfPath + "#page=" + page + "&toolbar=1&navpanes=0";
+      openLink.href = pdfPath + "#page=" + page;
+      titleEl.textContent = title;
+
+      previewBlock.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+  });
+</script>
+
 
 <section id="awards-certificates" class="lovif-extra-section lovif-awards-section">
   <div class="lovif-extra-container">
